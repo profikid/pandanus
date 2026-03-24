@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pandanus Fruit | Nature's Screwpine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #d4a574;
+            --gold-light: #e8c9a0;
+            --green: #4a6741;
+            --green-dark: #2d3d28;
+            --cream: #faf8f5;
+            --orange: #c9784a;
+            --text: #2c2c2c;
+            --text-light: #666;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 50%, var(--gold) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 C60 20, 80 30, 100 50 C80 70, 60 80, 50 100 C40 80, 20 70, 0 50 C20 30, 40 20, 50 0' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .fruit-icon {
+            font-size: 8rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--gold-light);
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.875rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--green-dark);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+        }
+
+        .intro {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+        }
+
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .fact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .fact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .fact-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--green-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .fact-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .highlight-section {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+            padding: 5rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .highlight-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .highlight-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--green-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-section p {
+            font-size: 1.15rem;
+            color: var(--text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .uses-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .use-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.5);
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .use-icon {
+            font-size: 1.5rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--green) 0%, var(--gold) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item:nth-child(2) {
+            background: linear-gradient(135deg, var(--orange) 0%, var(--gold) 100%);
+        }
+
+        .gallery-item:nth-child(3) {
+            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+        }
+
+        footer {
+            background: var(--green-dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .emoji-divider {
+            text-align: center;
+            font-size: 2rem;
+            padding: 2rem;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .facts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="fruit-icon">🍍</div>
+            <h1>Pandanus</h1>
+            <p class="subtitle">The Screwpine Fruit</p>
+            <p class="tagline">A tropical treasure with a fascinating spiral structure, cherished across Southeast Asia and the Pacific Islands for its unique flavor and versatility.</p>
+        </div>
+        <div class="scroll-hint">Scroll to explore ↓</div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">What is Pandanus?</h2>
+        <p class="intro">
+            The pandanus fruit, also known as "hala fruit" or "screwpine," is the edible fruit of the Pandanus tectorius tree. This remarkable plant produces fruit that looks like a giant pinecone made of bright orange or red segments, each containing a sweet, fibrous pulp.
+        </p>
+
+        <div class="facts-grid">
+            <div class="fact-card">
+                <div class="fact-icon">🌴</div>
+                <h3 class="fact-title">Origin</h3>
+                <p class="fact-text">Native to tropical regions of Southeast Asia, Pacific Islands, and coastal areas from Hawaii to the Philippines.</p>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">🔩</div>
+                <h3 class="fact-title">Structure</h3>
+                <p class="fact-text">Each fruit is a compound structure made of 30-200 individual segments (phalanges) arranged in a spiral pattern.</p>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">🎨</div>
+                <h3 class="fact-title">Appearance</h3>
+                <p class="fact-text">Vibrant orange to red when ripe, with a distinctive geometric pattern that makes it nature's own art piece.</p>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">👅</div>
+                <h3 class="fact-title">Taste</h3>
+                <p class="fact-text">Sweet and slightly tangy, with notes of pineapple, coconut, and vanilla. The texture is fibrous and chewy.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="emoji-divider">✦ ✦ ✦</div>
+
+    <section class="section">
+        <h2 class="section-title">Cultural Significance</h2>
+        <p class="intro">
+            For centuries, the pandanus tree has been deeply woven into the fabric of Pacific Island cultures. It's not just food—it's medicine, craft material, and a symbol of resilience.
+        </p>
+        
+        <div class="gallery">
+            <div class="gallery-item">🌺</div>
+            <div class="gallery-item">🧺</div>
+            <div class="gallery-item">🏝️</div>
+        </div>
+
+        <p>
+            In Hawaii, the leaves (lau hala) are woven into mats, baskets, and hats. The fruit itself is used in leis and traditional ceremonies. Across Micronesia and Polynesia, different parts of the plant serve as food, medicine, and building materials.
+        </p>
+    </section>
+
+    <section class="highlight-section">
+        <div class="highlight-content">
+            <h2>Uses & Benefits</h2>
+            <p>The pandanus fruit is incredibly versatile. Every part of the plant has a purpose, making it a true gift of nature.</p>
+            
+            <div class="uses-list">
+                <div class="use-item">
+                    <span class="use-icon">🍽️</span>
+                    <span>Fresh eating</span>
+                </div>
+                <div class="use-item">
+                    <span class="use-icon">🧃</span>
+                    <span>Juice & extracts</span>
+                </div>
+                <div class="use-item">
+                    <span class="use-icon">🍰</span>
+                    <span>Desserts & baking</span>
+                </div>
+                <div class="use-item">
+                    <span class="use-icon">🧴</span>
+                    <span>Natural dye</span>
+                </div>
+                <div class="use-item">
+                    <span class="use-icon">💊</span>
+                    <span>Traditional medicine</span>
+                </div>
+                <div class="use-item">
+                    <span class="use-icon">🎨</span>
+                    <span>Decorative crafts</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">How to Enjoy</h2>
+        <p class="intro">
+            Eating pandanus fruit is an experience. Each segment (called a "key") must be pulled away from the core and the fibrous pulp chewed to extract the sweet juice.
+        </p>
+
+        <div class="facts-grid">
+            <div class="fact-card">
+                <div class="fact-icon">1️⃣</div>
+                <h3 class="fact-title">Select</h3>
+                <p class="fact-text">Choose fruit with bright orange or red color. Avoid green or brown specimens.</p>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">2️⃣</div>
+                <h3 class="fact-title">Pull</h3>
+                <p class="fact-text">Gently twist and pull individual segments away from the central core.</p>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">3️⃣</div>
+                <h3 class="fact-title">Chew</h3>
+                <p class="fact-text">Chew the fibrous pulp to extract the sweet juice, then discard the fibers.</p>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">4️⃣</div>
+                <h3 class="fact-title">Savor</h3>
+                <p class="fact-text">Enjoy the unique blend of tropical flavors—pineapple, coconut, and vanilla notes.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>🍍 Pandanus Fruit — Nature's Screwpine</p>
+        <p style="margin-top: 0.5rem; opacity: 0.6;">A tropical treasure from the Pacific</p>
+    </footer>
+</body>
+</html>
